@@ -1,6 +1,6 @@
-import User from "@/app/(models)/User";
-import { NextResponse } from "next/server";
-import bcrypt from "bcrypt";
+// import User from "@/app/(models)/User";
+// import { NextResponse } from "next/server";
+// import bcrypt from "bcrypt";
 
 // export async function POST(req) {
 //   try {
