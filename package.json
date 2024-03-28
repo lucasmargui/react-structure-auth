@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
+    "mongodb": "^6.5.0",
+    "mongoose": "^8.2.4",
     "next": "13.5.4",
     "next-auth": "^4.23.2",
     "react": "^18",

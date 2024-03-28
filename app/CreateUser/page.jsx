@@ -1,10 +1,10 @@
-// import UserForm from "../(components)/UserForm";
+import UserForm from "../(components)/UserForm";
 
 const CreateUser = () => {
   return (
     <div>
-      {/* <UserForm /> */}
-      <h1>CreateUser</h1>
+      <UserForm />
+
     </div>
   );
 };
