@@ -1,16 +1,47 @@
-<a href="https://youtu.be/GS_0ZKzrvk0" target="_blank"><img src="https://www.claritycoders.com/_next/image?url=%2FClarityCodersAlpha.png&w=256&q=75" title="Clarity Coders YouTube" /></a>
-# Next Auth Tutorial Video
-- This code was used to teach programmers how to use NextAuth/Auth.js with Next.js.
-- The YouTube Version can be found by clicking on the link above.
-- An FREE! Updated version can be found on Udemy by clicking the link <a href="https://www.udemy.com/course/nextauth-nextjs-cc/?couponCode=C9622654181134A4AE79" target="_blank">Free Udemy Course</a>
 
-## What will you learn?
-- Seamless NextAuth / AuthJS Implementation - Learn to effortlessly integrate AuthJS (NextAuth) for streamlined authentication in your NextJS applications.
-- Client Side / Server Side page protection / Middleware - Master client and server side page protection and middleware for robust NextJS application security.
-- Using Built in Providers and creating your own login system - Use GitHub and Google to power login or create a custom MongoDB-based login system from scratch.
-- Role-Based Access Control (RBAC) - Implement fine-grained Role-Based Access Control (RBAC) for precise user authorization.
+<H1 align="center">Estrutura Next Search </H1>
+<p align="center">🚀Criação de uma estrutura de search em Next para referências futuras</p>
 
-## Contact!
-- YouTube <a href="https://www.youtube.com/claritycoders" target="_blank">Clarity Coders</a>
-- Chat with me! <a href="https://discord.gg/cAWW5qq" target="_blank">Discord</a>
-- Clarity Website stay up to date with all our course and free coupons <a href="https://www.youtube.com/claritycoders" target="_blank">Clarity Coders Website</a>
+
+# Criação de projeto Next
+
+```
+npx create-next-app@latest nextjs-auth
+```
+
+# Instalando depêndencias
+```
+npm i bcrypt
+npm i mongodb
+npm i mongoose
+npm i next-auth
+```
+
+
+
+# app
+ ## (components)
+ ## (models)
+ ## api
+ ## CreateUser
+ ## Denied
+ ## Member
+ ## Public
+
+# .env.local
+
+Local para armazenar variáveis de ambiente específicas do ambiente de desenvolvimento local. Ele é usado para configurar valores que podem variar entre diferentes instalações da mesma aplicação, como chaves de API, URLs de serviço ou qualquer outra informação sensível que não deva ser compartilhada publicamente ou versionada no controle de código-fonte.
+
+Utilização de variável local em app/(models)/User.js para conexão de um banco de dados MONGODB através de um provider fornecido pela depêndencia
+```
+import mongoose, { Schema } from "mongoose";
+mongoose.connect(process.env.MONGODB_URI);
+mongoose.Promise = global.Promise;
+```
+
+
+# middleware.js
+
+Este código basicamente protege a rota "/CreateUser" para permitir o acesso apenas a usuários autenticados com o papel de "admin". Se um usuário não autenticado tentar acessar essa rota, ou se um usuário autenticado com um papel diferente de "admin" tentar acessá-la, será redirecionado para "/Denied".
+
+![image](https://github.com/lucasmargui/React_Estrutura_Auth/assets/157809964/c8b5eaa6-a0ed-41d3-8f1a-ab4484fd736f)
