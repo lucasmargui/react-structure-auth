@@ -81,6 +81,8 @@ npm i next-auth
 
  ## layout.js
    Define um layout básico para a aplicação, que inclui a importação de um AuthProvider para tornar os dados da sessão disponíveis globalmente englobando o app e a importação de um componente Nav para exibição de todas as rotas de navegação da aplicação.
+   ![image](https://github.com/lucasmargui/React_Estrutura_Auth/assets/157809964/67286b52-4dbf-4752-a677-130437b26018)
+
    
  ## page.jsx
   Renderização da página inicial aplicando layout.js em todas as rotas e subrotas de http://localhost:3000/
