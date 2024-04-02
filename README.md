@@ -33,7 +33,6 @@ npm i next-auth
  ## api
   ### auth
    #### options.js
-   
 - Estão sendo importados os provedores de autenticação do NextAuth.js para GitHub, Google e Credenciais.
 
 - Há uma definição de um modelo de usuário (User) pelo caminho @/app/(models)/User.
@@ -55,8 +54,15 @@ npm i next-auth
 - session({ session, token }): Este método é usado para configurar a sessão do usuário. Ele recebe dois parâmetros, o session e o token. O session é o objeto de sessão do usuário e o token é o token JWT associado ao usuário. O método verifica se existe um usuário na sessão (if (session?.user)) e, se existir, atribui o papel (role) do usuário ao objeto de sessão (session.user.role = token.role). Em seguida, retorna a sessão.
 
   #### route.js
+
+  Arquivo de configuração de NextAuth que importa options.js
   
   ### Users
+
+  ##### route.js
+  
+  Arquivo responsável por receber requição post do componente UserForm e realizar o cadastro das credenciais do usuário no banco de dados MongoDB
+  
  ## CreateUser
  ## Denied
  ## Member
