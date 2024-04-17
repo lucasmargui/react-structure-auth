@@ -1,15 +1,21 @@
+<H1 align="center">Structure Next Authentication </H1>
+<p align="center">🚀Creating a search structure in Next for future references</p>
 
-<H1 align="center">Estrutura Next Auth </H1>
-<p align="center">🚀Criação de uma estrutura de search em Next para referências futuras</p>
 
+## Requirements
+- next
+- bcrypt
+- mongodb
+- mongoose
+- next-auth
 
-# Criação de projeto Next
+# Create project Next
 
 ```
 npx create-next-app@latest nextjs-auth
 ```
 
-# Instalando depêndencias
+# Installing dependencies
 ```
 npm i bcrypt
 npm i mongodb
@@ -19,79 +25,79 @@ npm i next-auth
 
 
 
-# app - Diretório
- ## (components) - Diretório
-  ### AuthProvider.js 
-   Um componente renderizado em client que importa SessionProvider para utilização de sessões na aplicação.
-  ### Nav.jsx
-   Um componente para renderização dos links das rotas de navegação, utiliza session para identificar se existe uma sessão ativa ou não.
-  ### UserForm 
-   Um componente para renderização de um formulário para criação de um usuário.
+# app - Directory
+ ## (components) - Directory
+ ### AuthProvider.js
+ A client-rendered component that imports SessionProvider for use by sessions in the application.
+ ###Nav.jsx
+ A component for rendering navigation route links uses session to identify whether there is an active session or not.
+ ### Userform
+ A component for rendering a form for creating a user.
  ## (models)
-  ### User.js
-  Arquivo responsável por retornar um modelo de User ao se conectar com banco de dados MongoDB ou utilizar um Schema próprio de criação. 
- ## api - Diretório 
-  ### auth - Diretório
-   #### options.js
+ ### User.js
+ File responsible for returning a user model when connecting to the MongoDB database or using its own creation scheme.
+ ## api - Directory
+ ### auth - Directory
+ ####options.js
 
-   ![image](https://github.com/lucasmargui/React_Estrutura_Auth/assets/157809964/978c28b0-9c81-4fc0-9b6d-69422268aa87)
+ ![image](https://github.com/lucasmargui/React_Estrutura_Auth/assets/157809964/978c28b0-9c81-4fc0-9b6d-69422268aa87)
 
-- Estão sendo importados os provedores de autenticação do NextAuth.js para GitHub, Google e Credenciais.
-- Há uma definição de um modelo de usuário (User) pelo caminho @/app/(models)/User.
-- O bcrypt está sendo importado para verificar senhas.
--  A variável options é exportada, que contém a configuração para autenticação.
-- Dentro das opções, há uma lista de provedores de autenticação que serão usados. Cada provedor tem suas próprias configurações.
--  Também há definições de como os perfis de usuário recebidos de diferentes provedores serão tratados. Por exemplo, para o GitHub, está sendo verificado se o e-mail do usuário é "lucasmargui@outlook.com", e se for, seu papel é definido como "admin".
--  Há uma definição para o provedor de Credenciais, onde é feita uma busca no banco de dados para encontrar um usuário com o e-mail fornecido e, se a senha corresponder, o usuário é autenticado.
-- Há também callbacks definidos para manipular os tokens JWT e as sessões do usuário.
-- jwt({ token, user }): Este método é usado para configurar o token JWT. Ele recebe dois parâmetros, o token e o user. O token é o token JWT que está sendo gerado ou atualizado, e o user é o usuário que está sendo autenticado. O método verifica se o usuário existe (if (user)) e, se existir, atribui o papel (role) do usuário ao token (token.role = user.role). Em seguida, retorna o token.
-- session({ session, token }): Este método é usado para configurar a sessão do usuário. Ele recebe dois parâmetros, o session e o token. O session é o objeto de sessão do usuário e o token é o token JWT associado ao usuário. O método verifica se existe um usuário na sessão (if (session?.user)) e, se existir, atribui o papel (role) do usuário ao objeto de sessão (session.user.role = token.role). Em seguida, retorna a sessão.
-
-  #### route.js
-
-  Arquivo de configuração de NextAuth que importa options.js e cria a rota app/api/auth/signin com cada provider criado em options.js
-
-  ![image](https://github.com/lucasmargui/React_Estrutura_Auth/assets/157809964/e4b47b81-20b3-4ade-a655-55d8e99e758f)
-
-  
-  ### Users - Diretório
+- NextAuth.js authentication providers for GitHub, Google and Credentials are imported.
+- There is a definition of a user model (User) using the path @/app/(models)/User.
+- bcrypt is being imported to verify passwords.
+- The options variable is exported, which contains the configuration for authentication.
+- Within the options, there is a list of authentication providers that will be used. Each provider has its own settings.
+- There are also definitions of how user profiles received from different providers will be treated. For example, for GitHub, it is checking whether the user's email is "lucasmargui@outlook.com", and if so, their role is set to "admin".
+- There is a definition for the Credentials provider, where the database is searched to find a user with the provided email and, if the password matches, the user is authenticated.
+- There are also callbacks defined to manipulate JWT tokens and user sessions.
+- jwt({ token, user }): This method is used to configure the JWT token. It receives two parameters, the token and the user. The token is the JWT token being generated or updated, and the user is the user being authenticated. The method checks whether the user exists (if (user)) and, if so, assigns the user's role to the token (token.role = user.role). It then returns the token.
+- session({ session, token }): This method is used to configure the user session. It receives two parameters, the session and the token. The session is the user's session object and the token is the JWT token associated with the user. The method checks whether a user exists in the session (if (session?.user)) and, if so, assigns the user's role to the session object (session.user.role = token.role). Then the session returns.
 
   #### route.js
-  
-  Arquivo responsável por receber requsição post do componente UserForm e realizar o cadastro das credenciais do usuário no banco de dados MongoDB
 
-  
- ## CreateUser - Diretório
-   Rota responsável por renderizar o fomulário de criação de usuário
-    ![image](https://github.com/lucasmargui/React_Estrutura_Auth/assets/157809964/18c690bf-f538-4912-b89b-d3555647178e)
-    
- ## Denied - Diretório
- 
-   Rota responsável por exibir uma mensagem de Acesso Negado caso usuário não tenha a permissão necessária para acessar tal rota.
-   
- ## Member - Diretório
- 
-   Rota responsável por exibir as informações de sessão de um usuário autenticado.
-   Caso ele não esteja autenticado é redirecionado para tela de login.
-   
-   ![image](https://github.com/lucasmargui/React_Estrutura_Auth/assets/157809964/c239ae66-82d3-4102-9a2c-e4a3c17c6fba)
+ NextAuth configuration file that imports options.js and creates the app/api/auth/signin route with each provider created in options.js
 
- ## Public - Diretório
-   Rota responsável por representar um espaço público onde usuários não autenticados podem acessar.
+ ![image](https://github.com/lucasmargui/React_Estrutura_Auth/assets/157809964/e4b47b81-20b3-4ade-a655-55d8e99e758f)
+
+
+ ### Users - Directory
+
+ #### route.js
+
+ File responsible for receiving post requests from the UserForm component and registering user credentials in the MongoDB database
+
+
+ ## CreateUser - Directory
+ Route responsible for rendering the user creation form
+ ![image](https://github.com/lucasmargui/React_Estrutura_Auth/assets/157809964/18c690bf-f538-4912-b89b-d3555647178e)
+
+ ## Denied - Directory
+
+ Route responsible for displaying an Access Denied message if the user does not have the necessary permission to access that route.
+
+ ## Member - Directory
+
+ Route responsible for displaying the session information of an authenticated user.
+ If he is not authenticated, he will be redirected to the login screen.
+
+ ![image](https://github.com/lucasmargui/React_Estrutura_Auth/assets/157809964/c239ae66-82d3-4102-9a2c-e4a3c17c6fba)
+
+ ## Public - Directory
+ Route responsible for representing a public space where unauthenticated users can access.
 
  ## layout.js
-   Define um layout básico para a aplicação, que inclui a importação de um AuthProvider para tornar os dados da sessão disponíveis globalmente englobando o app e a importação de um componente Nav para exibição de todas as rotas de navegação da aplicação.
-   ![image](https://github.com/lucasmargui/React_Estrutura_Auth/assets/157809964/67286b52-4dbf-4752-a677-130437b26018)
+ Defines a basic layout for the application, which includes importing an AuthProvider to make session data available globally across the app and importing a Nav component to display all of the application's navigation routes.
+ ![image](https://github.com/lucasmargui/React_Estrutura_Auth/assets/157809964/67286b52-4dbf-4752-a677-130437b26018)
 
-   
+
  ## page.jsx
-  Renderização da página inicial aplicando layout.js em todas as rotas e subrotas de http://localhost:3000/
+ Homepage rendering applying layout.js to all routes and subroutes of http://localhost:3000/
 
 # .env.local
 
-Local para armazenar variáveis de ambiente específicas do ambiente de desenvolvimento local. Ele é usado para configurar valores que podem variar entre diferentes instalações da mesma aplicação, como chaves de API, URLs de serviço ou qualquer outra informação sensível que não deva ser compartilhada publicamente ou versionada no controle de código-fonte.
+Location to store environment variables specific to the local development environment. It is used to configure values ​​that may vary between different installations of the same application, such as API keys, service URLs, or any other sensitive information that should not be shared publicly or versioned in source control.
 
-Utilização de variável local em app/(models)/User.js para conexão de um banco de dados MONGODB através de um provider fornecido pela depêndencia
+Using a local variable in app/(models)/User.js to connect a MONGODB database through a provider provided by the dependency
 ```
 import mongoose, { Schema } from "mongoose";
 mongoose.connect(process.env.MONGODB_URI);
@@ -101,6 +107,8 @@ mongoose.Promise = global.Promise;
 
 # middleware.js
 
-Este código basicamente protege a rota "/CreateUser" para permitir o acesso apenas a usuários autenticados com o papel de "admin". Se um usuário não autenticado tentar acessar essa rota, ou se um usuário autenticado com um papel diferente de "admin" tentar acessá-la, será redirecionado para "/Denied".
+This code basically protects the "/CreateUser" route to allow access only to users authenticated with the "admin" role. If an unauthenticated user tries to access this route, or if an authenticated user with a role other than "admin" tries to access it, they will be redirected to "/Denied".
 
 ![image](https://github.com/lucasmargui/React_Estrutura_Auth/assets/157809964/c8b5eaa6-a0ed-41d3-8f1a-ab4484fd736f)
+  
+ 
