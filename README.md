@@ -1,4 +1,4 @@
-<H1 align="center">Structure Next Authentication </H1>
+<H1 align="center">Next Authentication </H1>
 <p align="center">🚀Creating a search structure in Next for future references</p>
 
 
