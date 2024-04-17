@@ -1,5 +1,5 @@
 <H1 align="center">Next Authentication </H1>
-<p align="center">🚀Creating a search structure in Next for future references</p>
+<p align="center">🚀Creating a authentication structure in Next for future references</p>
 
 
 ## Requirements
